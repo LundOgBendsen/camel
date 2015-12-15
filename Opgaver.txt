@@ -8,16 +8,14 @@ Opgaver
 
 4) Læs en besked fra en kø og gem den i en tekstfil i et bibliotek.
 
-5) Flyt en tekstfil fra en kø til et bibliotek.
+5) Læs en tekstfil fra et bibliotek og send den igennem en bean og gem resultatet i et nyt bibliotek.
 
-8) Læs en tekstfil fra et bibliotek og send den igennem en bean og gem resultatet i et nyt bibliotek.
+6) Læs en XML-fil og split den op med et xpath udtryk og læg de spllitede XML-dokumenter på en kø.
 
-7) Læs en XML-fil og split den op med et xpath udtryk og læg de spllitede XML-dokumenter på en kø.
+7) Læs en XML-fil og split den op med et xpath udtryk og læg de spllitede XML-dokumenter på forskellige køer alt efter indhold.
 
-8) Læs en XML-fil og split den op med et xpath udtryk og læg de spllitede XML-dokumenter på forskellige køer alt efter indhold.
+8) Udstil en REST service som ved en GET /rest/order returnere alle ordre fra en database.
 
-9) Udstil en REST service som ved en GET /rest/order returnere alle ordre fra en database.
+9) Udstil en REST service som ved et GET /rest/order/[id] returnere en specifik ordre.
 
-10) Udstil en REST service som ved et GET /rest/order/[id] returnere en specifik ordre. 
-
-11) Udstil en REST service som ved en POST /rest/order gemmer den modtagne ordre på en kø.
+10) Udstil en REST service som ved en POST /rest/order gemmer den modtagne ordre på en kø.
