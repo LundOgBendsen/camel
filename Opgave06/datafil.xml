@@ -1,0 +1,12 @@
+<orders xmlns="http://www.lundogbendsen.dk/apache/camel/kursus">
+    <order>
+        <id>123</id>
+        <invetoryId>abc</invetoryId>
+        <count>5</count>
+    </order>
+    <order>
+        <id>456</id>
+        <invetoryId>def</invetoryId>
+        <count>2</count>
+    </order>
+</orders>
