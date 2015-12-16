@@ -4,11 +4,7 @@ import org.apache.camel.ExchangePattern;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jackson.JacksonDataFormat;
-import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.model.rest.RestBindingMode;
-import org.apache.camel.spi.DataFormat;
-import org.aspectj.weaver.ast.Or;
-import org.restlet.data.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
