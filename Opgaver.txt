@@ -21,4 +21,4 @@ Opgaver
 
   c) Udstil en REST service som ved en POST /rest/order gemmer den modtagne ordre på en kø.
 
-  d) Løs Json besked fra kø og inset række i tabellen.
+  d) Læs Json besked fra kø og indsæt en række i tabellen.
