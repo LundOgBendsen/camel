@@ -64,9 +64,4 @@ public class Application {
     public ActiveMQConnectionFactory jmsFactory() {
         return new ActiveMQConnectionFactory("admin", "admin", "tcp://localhost:61616");
     }
-
-    @Bean
-    public JmsTemplate jmsTemplate(final ConnectionFactory connectionFactory) {
-        return new JmsTemplate(connectionFactory);
-    }
 }
