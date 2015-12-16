@@ -5,9 +5,14 @@ import org.restlet.Component;
 import org.restlet.ext.spring.SpringServerServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.util.HashMap;
 
 @SpringBootApplication
@@ -37,5 +42,18 @@ public class Application {
     @Bean
     public RestletComponent restletComponentService(final Component component) {
         return new RestletComponent(component);
+    }
+
+    @Bean
+    @Primary
+    @ConfigurationProperties("spring.datasource")
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean
+    @Primary
+    public JdbcTemplate jdbcTemplate(final DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
     }
 }
