@@ -1,8 +1,14 @@
 package dk.lundogbendsen.apache.camel.kursus;
 
+import org.apache.camel.ExchangePattern;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.jackson.JacksonDataFormat;
+import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.model.rest.RestBindingMode;
+import org.apache.camel.spi.DataFormat;
+import org.aspectj.weaver.ast.Or;
+import org.restlet.data.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +28,10 @@ public class MainRoute extends RouteBuilder {
             .get("/order")
                 .to("direct:getOrders")
             .get("/order/{id}")
-                .to("direct:getOrder");
+                .to("direct:getOrder")
+            .post("/order")
+                .type(Order.class)
+                .to("direct:postOrder");
 
         from("direct:getOrders")
             .process(
@@ -37,6 +46,22 @@ public class MainRoute extends RouteBuilder {
                     Message in = exchange.getIn();
                     in.setBody(orderRepository.findOne(in.getHeader("id", Long.class)));
                 }
+            );
+
+        JacksonDataFormat orderDataFormat = new JacksonDataFormat(Order.class);
+
+        from("direct:postOrder")
+            .marshal(orderDataFormat)
+            .to(ExchangePattern.InOnly, "jms:queue:newOrders");
+
+        from("jms:queue:newOrders")
+            .convertBodyTo(String.class)
+            .unmarshal(orderDataFormat)
+            .process(
+                    exchange -> {
+                        final Order order = exchange.getIn().getBody(Order.class);
+                        orderRepository.save(order);
+                    }
             );
     }
 }
