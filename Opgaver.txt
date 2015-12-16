@@ -14,8 +14,9 @@ Opgaver
 
 7) Læs en XML-fil og split den op med et xpath udtryk og læg de spllitede XML-dokumenter på forskellige køer alt efter indhold.
 
-8) Udstil en REST service som ved en GET /rest/order returnere alle ordre fra en database.
+8)
+  a) Udstil en REST service som ved en GET /rest/order returnere alle ordre fra en database.
 
-9) Udstil en REST service som ved et GET /rest/order/[id] returnere en specifik ordre.
+  b) Udstil en REST service som ved et GET /rest/order/[id] returnere en specifik ordre.
 
-10) Udstil en REST service som ved en POST /rest/order gemmer den modtagne ordre på en kø.
+  c) Udstil en REST service som ved en POST /rest/order gemmer den modtagne ordre på en kø.
