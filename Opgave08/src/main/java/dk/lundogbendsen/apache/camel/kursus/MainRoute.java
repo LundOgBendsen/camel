@@ -48,7 +48,8 @@ public class MainRoute extends RouteBuilder {
 
         from("direct:postOrder")
             .marshal(orderDataFormat)
-            .to(ExchangePattern.InOnly, "jms:queue:newOrders");
+            .to(ExchangePattern.InOnly, "jms:queue:newOrders")
+            .transform().constant("Order stored successfully");
 
         from("jms:queue:newOrders")
             .convertBodyTo(String.class)
