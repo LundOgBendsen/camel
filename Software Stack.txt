@@ -1,0 +1,19 @@
+Software stack:
+
+Oracle Java 8
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+Apacke Maven 3.3
+https://maven.apache.org/download.cgi
+
+Jetbrains IntelliJ Ultimate 15.0.2
+https://www.jetbrains.com/idea/download/
+
+Hawtio
+http://hawt.io/getstarted/
+
+ActiveMQ
+http://activemq.apache.org/download.html
+
+H2 Database
+http://www.h2database.com/html/download.html
