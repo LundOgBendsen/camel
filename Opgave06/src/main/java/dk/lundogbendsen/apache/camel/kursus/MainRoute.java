@@ -8,7 +8,8 @@ public class MainRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("file:input")
-            .split(xpath("/prefix:orders/prefix:order").namespace("prefix", "http://www.lundogbendsen.dk/apache/camel/kursus"))
+            .split(xpath("/prefix:orders/prefix:order")
+                    .namespace("prefix", "http://www.lundogbendsen.dk/apache/camel/kursus"))
             .to("jms:queue:orders");
     }
 }
